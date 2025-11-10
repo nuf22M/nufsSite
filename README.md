@@ -8,7 +8,7 @@ A modern, aesthetic, and responsive portfolio website showcasing the skills, pro
 - **Responsive Layout**: Fully responsive design that works on all devices
 - **Smooth Animations**: Engaging animations and transitions throughout
 - **Interactive Elements**: Hover effects, smooth scrolling, and dynamic navigation
-- **Contact Form**: Functional contact form for easy communication
+- **Contact Form**: Functional contact form using Formspree for static hosting compatibility
 - **Project Showcase**: Detailed presentation of academic and personal projects
 - **Skills Display**: Organized presentation of technical skills and expertise
 
@@ -96,6 +96,7 @@ To change the color scheme, modify the CSS variables in `styles.css`:
 2. Push the files to the repository
 3. Enable GitHub Pages in repository settings
 4. Your site will be live at `https://yourusername.github.io/repository-name`
+5. **Note**: PHP files are not compatible with GitHub Pages (static hosting only)
 
 ### Option 2: Netlify
 1. Create a Netlify account
@@ -107,10 +108,18 @@ To change the color scheme, modify the CSS variables in `styles.css`:
 2. Import the project
 3. Deploy with one click
 
+## Contact Form Setup
+
+The contact form uses Formspree for compatibility with static hosting services like GitHub Pages:
+
+1. Sign up at [Formspree.io](https://formspree.io/)
+2. Create a new form and get your form endpoint
+3. Update the form action in `index.html` with your Formspree endpoint
+4. No backend code required - Formspree handles email delivery
+
 ## Future Enhancements
 
 - Add blog section
-- Integrate real backend for contact form
 - Add dark/light theme toggle
 - Include testimonials section
 - Add downloadable resume/CV
