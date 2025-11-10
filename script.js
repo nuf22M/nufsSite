@@ -93,41 +93,6 @@ animatedElements.forEach(el => {
     observer.observe(el);
 });
 
-// Contact Form Handling
-const contactForm = document.getElementById('contactForm');
-
-// Handle form submission
-contactForm.addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevent default form submission
-    
-    // Get form data
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    
-    // Show sending message
-    const submitButton = contactForm.querySelector('button[type="submit"]');
-    const originalButtonText = submitButton.textContent;
-    submitButton.textContent = 'Sending...';
-    submitButton.disabled = true;
-    
-    // Simple validation
-    if (!name || !email || !message) {
-        alert('Please fill in all fields.');
-        submitButton.textContent = originalButtonText;
-        submitButton.disabled = false;
-        return;
-    }
-    
-    // In a real implementation, you would send the data to Formspree via AJAX
-    // For now, we'll show a success message and reset the form
-    setTimeout(() => {
-        alert(`Thank you, ${name}! Your message has been sent successfully. I'll get back to you soon at ${email}.`);
-        contactForm.reset();
-        submitButton.textContent = originalButtonText;
-        submitButton.disabled = false;
-    }, 1000);
-});
 
 // Typing effect for hero subtitle (optional enhancement)
 const heroSubtitle = document.querySelector('.hero-subtitle');
