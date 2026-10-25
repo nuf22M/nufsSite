@@ -1076,3 +1076,124 @@ img {
     border-color: var(--accent-color);
     color: var(--accent-color);
 }
+
+/* Featured digital marketing work */
+.dm-work {
+    margin-bottom: 3rem;
+}
+
+.dm-work-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+
+.dm-work-card {
+    display: grid;
+    grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
+    gap: 0;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: var(--transition);
+    color: inherit;
+}
+
+.dm-work-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+.dm-work-img {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: radial-gradient(circle at 50% 0%, rgba(0, 245, 212, 0.12), var(--bg-alt) 70%);
+    overflow: hidden;
+}
+
+.dm-work-img img {
+    width: auto;
+    max-width: 100%;
+    max-height: 440px;
+    border-radius: 14px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+    transition: var(--transition);
+}
+
+.dm-work-card:hover .dm-work-img img {
+    transform: translateY(-4px);
+}
+
+.dm-work-badge {
+    align-self: flex-start;
+    background-color: rgba(0, 245, 212, 0.1);
+    border: 1px solid rgba(0, 245, 212, 0.35);
+    color: var(--accent-color);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 30px;
+    margin-bottom: 0.25rem;
+}
+
+.dm-work-content {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.dm-work-content h4 {
+    font-size: 26px;
+    line-height: 1.2;
+}
+
+.dm-work-content > p:not(.project-tech) {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--text-secondary);
+}
+
+.dm-work-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.dm-work-card:hover .dm-work-link {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .dm-work-card {
+        grid-template-columns: 1fr;
+    }
+
+    .dm-work-img {
+        padding: 20px 20px 0;
+    }
+
+    .dm-work-img img {
+        max-height: 380px;
+    }
+
+    .dm-work-content {
+        padding: 24px;
+    }
+}
