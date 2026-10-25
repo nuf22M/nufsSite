@@ -106,31 +106,110 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- RioStudio Lightbox ---
-    const lightbox = document.getElementById('riostudio-lightbox');
-    const backdrop = lightbox && lightbox.querySelector('.lightbox-backdrop');
-    const closeBtn = lightbox && lightbox.querySelector('.lightbox-close');
-    const triggers = document.querySelectorAll('.riostudio-preview-btn, .riostudio-thumb');
+    // --- Lightbox Helper (handles all project lightboxes) ---
+    function initLightbox(lightboxId, triggerSelectors) {
+        const lb = document.getElementById(lightboxId);
+        if (!lb) return;
+        const bd = lb.querySelector('.lightbox-backdrop');
+        const cb = lb.querySelector('.lightbox-close');
+        const trigs = document.querySelectorAll(triggerSelectors);
 
-    function openLightbox() {
-        if (!lightbox) return;
-        lightbox.hidden = false;
-        document.body.style.overflow = 'hidden';
-        if (closeBtn) closeBtn.focus();
+        function open()  { lb.hidden = false; document.body.style.overflow = 'hidden'; if (cb) cb.focus(); }
+        function close() { lb.hidden = true;  document.body.style.overflow = ''; }
+
+        trigs.forEach(el => el.addEventListener('click', open));
+        if (bd) bd.addEventListener('click', close);
+        if (cb) cb.addEventListener('click', close);
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !lb.hidden) close(); });
     }
 
-    function closeLightbox() {
-        if (!lightbox) return;
-        lightbox.hidden = true;
-        document.body.style.overflow = '';
-    }
+    initLightbox('riostudio-lightbox',     '.riostudio-preview-btn, .riostudio-thumb');
+    initLightbox('busreservation-lightbox', '.busreservation-preview-btn, .busreservation-thumb');
 
-    triggers.forEach(el => el.addEventListener('click', openLightbox));
-    if (backdrop) backdrop.addEventListener('click', closeLightbox);
-    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+    // --- Graphic Design Gallery ---
+    const gdItems = Array.from(document.querySelectorAll('.gd-item'));
+    const gdMore = document.querySelector('.gd-more');
+    const GD_VISIBLE_COUNT = 3;
 
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox && !lightbox.hidden) closeLightbox();
+    gdItems.forEach((item, index) => {
+        if (index >= GD_VISIBLE_COUNT) item.classList.add('is-hidden');
     });
+
+    function gdUpdateMoreButton() {
+        if (!gdMore) return;
+        const expanded = gdMore.getAttribute('aria-expanded') === 'true';
+        gdMore.textContent = expanded ? 'Show Less' : `Show More Designs (${gdItems.length - GD_VISIBLE_COUNT})`;
+    }
+
+    if (gdMore) {
+        gdUpdateMoreButton();
+        gdMore.addEventListener('click', () => {
+            const expanded = gdMore.getAttribute('aria-expanded') === 'true';
+            gdItems.forEach((item, index) => {
+                if (index >= GD_VISIBLE_COUNT) item.classList.toggle('is-hidden', expanded);
+            });
+            gdMore.setAttribute('aria-expanded', String(!expanded));
+            gdUpdateMoreButton();
+            if (expanded) {
+                const gallery = document.querySelector('.gd-gallery');
+                const top = gallery.getBoundingClientRect().top + window.scrollY - 100;
+                window.scrollTo({ top, behavior: 'smooth' });
+            }
+        });
+    }
+
+    // --- Graphic Design Gallery Lightbox ---
+    const gdLightbox = document.getElementById('gd-lightbox');
+
+    if (gdItems.length && gdLightbox) {
+        const gdImage = document.getElementById('gd-lightbox-img');
+        const gdPrev = gdLightbox.querySelector('.lightbox-prev');
+        const gdNext = gdLightbox.querySelector('.lightbox-next');
+        const gdBackdrop = gdLightbox.querySelector('.lightbox-backdrop');
+        const gdClose = gdLightbox.querySelector('.lightbox-close');
+        let gdIndex = 0;
+
+        function gdVisibleItems() {
+            return gdItems.filter(item => !item.classList.contains('is-hidden'));
+        }
+
+        function gdShow(index) {
+            const items = gdVisibleItems();
+            if (!items.length) return;
+            gdIndex = (index + items.length) % items.length;
+            const item = items[gdIndex];
+            const thumb = item.querySelector('img');
+            gdImage.src = item.dataset.full;
+            gdImage.alt = thumb ? thumb.alt : 'Graphic design preview';
+        }
+
+        function gdOpen(item) {
+            gdShow(gdVisibleItems().indexOf(item));
+            gdLightbox.hidden = false;
+            document.body.style.overflow = 'hidden';
+            gdClose.focus();
+        }
+
+        function gdCloseLightbox() {
+            gdLightbox.hidden = true;
+            document.body.style.overflow = '';
+        }
+
+        gdItems.forEach((item) => {
+            item.addEventListener('click', () => gdOpen(item));
+        });
+
+        if (gdPrev) gdPrev.addEventListener('click', () => gdShow(gdIndex - 1));
+        if (gdNext) gdNext.addEventListener('click', () => gdShow(gdIndex + 1));
+        if (gdBackdrop) gdBackdrop.addEventListener('click', gdCloseLightbox);
+        if (gdClose) gdClose.addEventListener('click', gdCloseLightbox);
+
+        document.addEventListener('keydown', (e) => {
+            if (gdLightbox.hidden) return;
+            if (e.key === 'Escape') gdCloseLightbox();
+            if (e.key === 'ArrowLeft') gdShow(gdIndex - 1);
+            if (e.key === 'ArrowRight') gdShow(gdIndex + 1);
+        });
+    }
 
 });
