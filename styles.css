@@ -1,1078 +1,615 @@
-/* 
-  Personal Portfolio Styles
-  NM Nufail | Software Engineer
-*/
-
-:root {
-    /* Color Palette - Dark Mint/Teal */
-    --bg-color: #0a0b0d;
-    --bg-alt: #13151a;
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --accent-color: #00f5d4; /* Teal/Mint */
-    --accent-hover: #00d4b8;
-    --card-bg: #1e2128;
-    --border-color: rgba(255, 255, 255, 0.08);
-    --header-bg: rgba(10, 11, 13, 0.85);
-
-    /* Fonts */
-    --font-main: 'Inter', sans-serif;
-    --font-display: 'Outfit', sans-serif;
-
-    /* Spacing & Transitions */
-    --container-width: 100%;
-    --container-wide: 100%;
-    --container-small: 100%;
-    --side-padding: 180px;
-    --section-space-lg: 120px;
-    --section-space-md: 96px;
-    --section-space-sm: 72px;
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background-color: var(--bg-color);
-    color: var(--text-primary);
-    font-family: var(--font-main);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: var(--transition);
-}
-
-ul {
-    list-style: none;
-}
-
-img {
-    max-width: 100%;
-    display: block;
-}
-
-.container {
-    width: 100%;
-    max-width: none;
-    margin: 0 auto;
-    padding-inline: var(--side-padding);
-}
-
-.container-wide {
-    width: 100%;
-    max-width: none;
-    margin: 0 auto;
-    padding-inline: var(--side-padding);
-}
-
-.container-small {
-    width: 100%;
-    max-width: none;
-    margin: 0 auto;
-    padding-inline: var(--side-padding);
-}
-
-.section {
-    padding: var(--section-space-lg) 0;
-}
-
-.section-md {
-    padding: var(--section-space-md) 0;
-}
-
-.section-sm {
-    padding: var(--section-space-sm) 0;
-}
-
-.bg-alt {
-    background-color: var(--bg-alt);
-}
-
-.section-title {
-    font-family: var(--font-display);
-    font-size: 54px;
-    line-height: 1.2;
-    font-weight: 700;
-    margin-bottom: 3rem;
-    text-align: center;
-}
-
-.section-title span {
-    color: var(--accent-color);
-}
-
-.subsection-title {
-    font-family: var(--font-display);
-    font-size: 32px;
-    line-height: 1.2;
-    font-weight: 600;
-    margin-bottom: 2rem;
-    color: var(--text-secondary);
-}
-
-/* --- Navigation --- */
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: var(--header-bg);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border-color);
-    transition: var(--transition);
-}
-
-.nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 88px;
-}
-
-.logo {
-    font-family: var(--font-display);
-    font-size: 1.75rem;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-}
-
-.logo span {
-    color: var(--accent-color);
-}
-
-.nav-list {
-    display: flex;
-    gap: 2rem;
-}
-
-.nav-link {
-    font-weight: 500;
-    color: var(--text-secondary);
-    font-size: 1.05rem;
-}
-
-.nav-link:hover, .nav-link.active {
-    color: var(--accent-color);
-}
-
-.nav-toggle {
-    display: none;
-    cursor: pointer;
-    color: var(--text-primary);
-}
-
-/* --- Buttons --- */
-.btn {
-    display: inline-block;
-    min-height: 52px;
-    padding: 18px 32px;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 1.2;
-    cursor: pointer;
-    transition: var(--transition);
-    border: 2px solid transparent;
-}
-
-.btn-primary {
-    background-color: var(--accent-color);
-    color: var(--bg-color);
-}
-
-.btn-primary:hover {
-    background-color: var(--accent-hover);
-    transform: translateY(-2px);
-}
-
-.btn-outline {
-    border-color: var(--accent-color);
-    color: var(--accent-color);
-}
-
-.btn-outline:hover {
-    background-color: rgba(0, 245, 212, 0.1);
-    transform: translateY(-2px);
-}
-
-.btn-full {
-    width: 100%;
-    text-align: center;
-}
-
-/* --- Hero Section --- */
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding-top: calc(88px + 24px);
-}
-
-.hero-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 3rem;
-    align-items: center;
-}
-
-.hero-greeting {
-    display: block;
-    color: var(--accent-color);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    font-size: 1.3rem;
-}
-
-.hero-name {
-    font-family: var(--font-display);
-    font-size: 72px;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-}
-
-.hero-role {
-    font-size: 54px;
-    line-height: 1.2;
-    font-weight: 400;
-    margin-bottom: 1.5rem;
-    color: var(--text-secondary);
-}
-
-.hero-role span {
-    color: var(--text-primary);
-    font-weight: 700;
-}
-
-.hero-desc {
-    font-size: 22px;
-    line-height: 1.6;
-    max-width: 500px;
-    margin-bottom: 2.5rem;
-    color: var(--text-secondary);
-}
-
-.hero-btns {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-}
-
-.hero-image-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-}
-
-.hero-blob {
-    width: clamp(240px, 36vw, 400px);
-    aspect-ratio: 1 / 1;
-    background-color: var(--bg-alt);
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid var(--accent-color);
-    overflow: hidden;
-    animation: blobMorph 8s ease-in-out infinite alternate;
-}
-
-.profile-img-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.profile-initials {
-    font-family: var(--font-display);
-    font-size: 100px;
-    font-weight: 700;
-    color: var(--accent-color);
-    opacity: 0.3;
-}
-
-@keyframes blobMorph {
-    0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-    100% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
-}
-
-/* --- About Section --- */
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-}
-
-.about-info h3 {
-    font-size: 40px;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-}
-
-.about-info p {
-    font-size: 18px;
-    line-height: 1.6;
-    color: var(--text-secondary);
-    margin-bottom: 2rem;
-}
-
-.personal-details {
-    display: grid;
-    gap: 1rem;
-    margin-bottom: 2.5rem;
-}
-
-.detail-item {
-    display: flex;
-    gap: 1rem;
-}
-
-.detail-label {
-    font-weight: 600;
-    color: var(--accent-color);
-    min-width: 100px;
-}
-
-.interests-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    margin-top: 1rem;
-}
-
-.interests-tags span {
-    background-color: var(--card-bg);
-    padding: 0.4rem 1rem;
-    border-radius: 30px;
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    border: 1px solid var(--border-color);
-}
-
-/* Timeline */
-.timeline-section {
-    margin-bottom: 2.5rem;
-}
-
-.timeline-title {
-    font-family: var(--font-display);
-    font-size: 32px;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-    color: var(--accent-color);
-}
-
-.timeline-item {
-    padding-left: 1.5rem;
-    border-left: 2px solid var(--border-color);
-    position: relative;
-    padding-bottom: 2rem;
-}
-
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -7px;
-    top: 0;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: var(--accent-color);
-}
-
-.timeline-date {
-    display: block;
-    font-size: 0.85rem;
-    color: var(--accent-color);
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-}
-
-.timeline-subtitle {
-    font-size: 22px;
-    line-height: 1.2;
-    font-weight: 700;
-}
-
-.timeline-org {
-    font-size: 18px;
-    color: var(--text-secondary);
-    margin-bottom: 0.5rem;
-}
-
-.timeline-desc {
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--text-secondary);
-}
-
-/* --- Projects Section --- */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
-    gap: 24px;
-}
-
-.project-card {
-    background-color: var(--card-bg);
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-    transition: var(--transition);
-    display: flex;
-    flex-direction: column;
-}
-
-.project-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--accent-color);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.28);
-}
-
-.project-img {
-    position: relative;
-    height: 220px;
-    background-color: var(--bg-alt);
-    overflow: hidden;
-}
-
-.project-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    transition: var(--transition);
-}
-
-.project-card:hover .project-img img {
-    transform: scale(1.04);
-}
-
-.project-img-overlay {
-    position: absolute;
-    inset: 0;
-    background-color: rgba(10, 11, 13, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: var(--transition);
-    z-index: 2;
-}
-
-.project-card:hover .project-img-overlay {
-    opacity: 1;
-}
-
-.project-link {
-    width: 45px;
-    height: 45px;
-    background-color: var(--accent-color);
-    color: var(--bg-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.project-content {
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    flex: 1;
-}
-
-.project-content h4 {
-    font-size: 24px;
-    line-height: 1.2;
-    margin-bottom: 0.2rem;
-}
-
-.project-tech {
-    font-size: 14px;
-    color: var(--accent-color);
-    margin-bottom: 0.25rem;
-    font-weight: 600;
-    letter-spacing: 0.2px;
-}
-
-.project-content p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--text-secondary);
-    margin-top: auto;
-}
-
-/* Academic Projects */
-.academic-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
-    gap: 24px;
-}
-
-.academic-card {
-    background-color: var(--bg-alt);
-    padding: 24px;
-    border-radius: 16px;
-    border: 1px solid var(--border-color);
-    transition: var(--transition);
-}
-
-.academic-card:hover {
-    border-color: var(--accent-color);
-    background-color: var(--card-bg);
-}
-
-.academic-tech {
-    color: var(--accent-color);
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-}
-
-/* --- Skills Section --- */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
-    gap: 24px;
-}
-
-.skills-category {
-    background-color: var(--bg-color);
-    padding: 24px;
-    border-radius: 16px;
-    border: 1px solid var(--border-color);
-}
-
-.skills-category h3 {
-    color: var(--accent-color);
-    font-size: 30px;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.skills-list li {
-    position: relative;
-    padding-left: 1.5rem;
-    margin-bottom: 0.8rem;
-    color: var(--text-secondary);
-    font-size: 18px;
-    line-height: 1.6;
-    font-weight: 500;
-}
-
-.skills-list li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--accent-color);
-}
-
-/* --- Contact Section --- */
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
-}
-
-.contact-info h3 {
-    font-size: 40px;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-}
-
-.contact-info p {
-    font-size: 18px;
-    line-height: 1.6;
-    color: var(--text-secondary);
-    margin-bottom: 2.5rem;
-}
-
-.contact-methods {
-    display: grid;
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
-}
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.contact-icon {
-    width: 45px;
-    height: 45px;
-    background-color: var(--bg-alt);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--accent-color);
-    border: 1px solid var(--border-color);
-}
-
-.contact-text span {
-    display: block;
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-}
-
-.contact-text p {
-    font-weight: 600;
-    margin-bottom: 0;
-    font-size: 1rem;
-}
-
-.social-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.social-links a {
-    width: 40px;
-    height: 40px;
-    background-color: var(--card-bg);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-secondary);
-    border: 1px solid var(--border-color);
-}
-
-.social-links a:hover {
-    background-color: var(--accent-color);
-    color: var(--bg-color);
-}
-
-/* Form Styles */
-.contact-form {
-    background-color: var(--bg-alt);
-    padding: 28px;
-    border-radius: 16px;
-    border: 1px solid var(--border-color);
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    font-size: 16px;
-    color: var(--text-secondary);
-}
-
-.form-group input, .form-group textarea {
-    width: 100%;
-    padding: 0.8rem 1rem;
-    background-color: var(--bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    color: var(--text-primary);
-    font-family: inherit;
-    transition: var(--transition);
-}
-
-.form-group input:focus, .form-group textarea:focus {
-    outline: none;
-    border-color: var(--accent-color);
-    background-color: var(--bg-alt);
-}
-
-/* --- Footer --- */
-.footer {
-    padding: 4rem 0;
-    border-top: 1px solid var(--border-color);
-    background-color: var(--bg-color);
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer p {
-    color: var(--text-secondary);
-    font-size: 16px;
-}
-
-.footer-nav {
-    display: flex;
-    gap: 2rem;
-}
-
-.footer-nav a {
-    color: var(--text-secondary);
-    font-size: 16px;
-}
-
-.footer-nav a:hover {
-    color: var(--accent-color);
-}
-
-/* --- Animations --- */
-.animate-up {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.8s forwards ease-out;
-}
-
-.animate-fade {
-    opacity: 0;
-    animation: fadeIn 1.2s forwards ease-out;
-}
-
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
-}
-
-/* Scroll Reveal */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* --- Responsive --- */
-@media screen and (max-width: 1366px) {
-    :root {
-        --side-padding: 30px;
-    }
-}
-
-@media screen and (max-width: 992px) {
-    .hero-grid, .about-grid, .contact-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-content {
-        order: 2;
-        text-align: center;
-    }
-
-    .hero-image-container {
-        order: 1;
-    }
-
-    .hero-desc {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .hero-btns {
-        justify-content: center;
-    }
-
-    .about-timeline {
-        border-top: 1px solid var(--border-color);
-        padding-top: 3rem;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    :root {
-        --side-padding: 22px;
-    }
-
-    .nav-list {
-        position: fixed;
-        top: 88px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 88px);
-        background-color: var(--bg-color);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: var(--transition);
-        z-index: 999;
-    }
-
-    .nav-list.active {
-        left: 0;
-    }
-
-    .nav-toggle {
-        display: block;
-    }
-
-    .hero {
-        min-height: auto;
-        padding-top: calc(88px + 20px);
-    }
-
-    .section {
-        padding-top: var(--section-space-md);
-        padding-bottom: var(--section-space-md);
-    }
-
-    .hero-grid {
-        gap: 24px;
-    }
-
-    .hero-name {
-        font-size: 56px;
-    }
-
-    .hero-role {
-        font-size: 42px;
-    }
-
-    .section-title {
-        font-size: 42px;
-    }
-
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-form {
-        padding: 1.5rem;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        gap: 1.5rem;
-        text-align: center;
-    }
-}
-
-@media screen and (max-width: 390px) {
-    :root {
-        --side-padding: 16px;
-    }
-
-    .hero-name {
-        font-size: 44px;
-    }
-
-    .hero-role {
-        font-size: 32px;
-    }
-
-    .section-title {
-        font-size: 36px;
-    }
-
-    .btn {
-        width: 100%;
-        text-align: center;
-    }
-}
-
-/* --- Lightbox --- */
-.lightbox {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.lightbox[hidden] {
-    display: none;
-}
-
-.lightbox-backdrop {
-    position: absolute;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.88);
-    cursor: pointer;
-}
-
-.lightbox-content {
-    position: relative;
-    z-index: 1;
-    max-width: 92vw;
-    max-height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: lightboxIn 0.25s ease-out;
-}
-
-@keyframes lightboxIn {
-    from { opacity: 0; transform: scale(0.94); }
-    to   { opacity: 1; transform: scale(1); }
-}
-
-.lightbox-img {
-    max-width: 92vw;
-    max-height: 88vh;
-    width: auto;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
-    display: block;
-    object-fit: contain;
-}
-
-.lightbox-close {
-    position: absolute;
-    top: -16px;
-    right: -16px;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background-color: var(--card-bg);
-    border: 2px solid var(--accent-color);
-    color: var(--text-primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: var(--transition);
-    z-index: 2;
-}
-
-.lightbox-close:hover {
-    background-color: var(--accent-color);
-    color: var(--bg-color);
-}
-
-/* Make the RioStudio thumbnail image clearly clickable */
-.riostudio-thumb {
-    cursor: zoom-in;
-}
-
-.riostudio-preview-btn {
-    background: none;
-    border: none;
-    padding: 0;
-}
-
-/* --- Digital Marketing Section --- */
-.dm-intro {
-    font-size: 18px;
-    line-height: 1.7;
-    color: var(--text-secondary);
-    max-width: 720px;
-    margin: 0 auto 3rem;
-    text-align: center;
-}
-
-.dm-services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
-    gap: 24px;
-    margin-bottom: 3rem;
-}
-
-.dm-service-card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-    padding: 28px 24px;
-    transition: var(--transition);
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.dm-service-card:hover {
-    border-color: var(--accent-color);
-    transform: translateY(-5px);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
-}
-
-.dm-icon {
-    width: 56px;
-    height: 56px;
-    background-color: rgba(0, 245, 212, 0.08);
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--accent-color);
-    margin-bottom: 0.25rem;
-    border: 1px solid rgba(0, 245, 212, 0.15);
-}
-
-.dm-service-card h4 {
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 1.3;
-    color: var(--text-primary);
-}
-
-.dm-service-card p {
-    font-size: 15px;
-    line-height: 1.65;
-    color: var(--text-secondary);
-}
-
-.dm-tools {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-    padding: 32px;
-    text-align: center;
-}
-
-.dm-tools-title {
-    font-family: var(--font-display);
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--accent-color);
-    margin-bottom: 1.25rem;
-}
-
-.dm-tools-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    justify-content: center;
-}
-
-.dm-tools-list span {
-    background-color: var(--bg-alt);
-    border: 1px solid var(--border-color);
-    color: var(--text-secondary);
-    padding: 0.45rem 1.1rem;
-    border-radius: 30px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: var(--transition);
-}
-
-.dm-tools-list span:hover {
-    border-color: var(--accent-color);
-    color: var(--accent-color);
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NM Nufail | Software Engineer & Web Developer</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <!-- Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#home" class="logo">NM <span>Nufail</span></a>
+            <div class="nav-toggle" id="nav-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
+            </div>
+            <ul class="nav-list" id="nav-list">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#digital-marketing" class="nav-link">Marketing</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero section">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <span class="hero-greeting animate-up">Hello, I'm</span>
+                    <h1 class="hero-name animate-up" style="animation-delay: 0.1s;">NM Nufail</h1>
+                    <h2 class="hero-role animate-up" style="animation-delay: 0.2s;">Software Engineer & <br><span>Web Developer</span></h2>
+                    <p class="hero-desc animate-up" style="animation-delay: 0.3s;">
+                        I am a Software Engineering student passionate about creating digital solutions. 
+                        I have strong skills in programming, problem-solving, and system design.
+                    </p>
+                    <div class="hero-btns animate-up" style="animation-delay: 0.4s;">
+                        <a href="#projects" class="btn btn-primary">View Projects</a>
+                        <a href="#contact" class="btn btn-outline">Hire Me</a>
+                    </div>
+                </div>
+                <div class="hero-image-container animate-fade" style="animation-delay: 0.5s;">
+                    <div class="hero-blob">
+                        <!-- Placeholder for Profile Photo -->
+                        <div class="profile-img-placeholder">
+                            <span class="profile-initials">NM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about section bg-alt">
+            <div class="container">
+                <h2 class="section-title">About <span>Me</span></h2>
+                <div class="about-grid">
+                    <div class="about-info reveal">
+                        <h3>Passionate about Tech</h3>
+                        <p>I enjoy working in dynamic environments and always strive to learn and improve in the ever-changing tech industry. My goal is to build software that makes a real impact.</p>
+                        
+                        <div class="personal-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Location:</span>
+                                <span class="detail-value">Qatar, Doha</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Languages:</span>
+                                <span class="detail-value">Tamil, English, Sinhala</span>
+                            </div>
+                        </div>
+
+                        <div class="interests">
+                            <h4>Interests</h4>
+                            <div class="interests-tags">
+                                <span>UI / UX Design</span>
+                                <span>Data Analytics</span>
+                                <span>System Development</span>
+                                <span>Database Maintenance</span>
+                                <span>Designing</span>
+                                <span>Video & Photo Editing</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-timeline reveal">
+                        <!-- Experience -->
+                        <div class="timeline-section">
+                            <h4 class="timeline-title">Experience</h4>
+                            <div class="timeline-item">
+                                <span class="timeline-date">February 2024 - March 2026</span>
+                                <h5 class="timeline-subtitle">Full Stack Developer</h5>
+                                <p class="timeline-org">Gafe Consultants</p>
+                                <p class="timeline-desc">Working on web development projects, creating responsive websites, and implementing modern web technologies.</p>
+                            </div>
+                        </div>
+
+                        <!-- Education -->
+                        <div class="timeline-section">
+                            <h4 class="timeline-title">Education</h4>
+                            <div class="timeline-item">
+                                <span class="timeline-date">2023 - 2026</span>
+                                <h5 class="timeline-subtitle">BEng (Hons) Software Engineering (Reading)</h5>
+                                <p class="timeline-org">ESOFT Metro Campus</p>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="timeline-date">2023 - 2026</span>
+                                <h5 class="timeline-subtitle">HND in Computing Software Engineering</h5>
+                                <p class="timeline-org">ESOFT Metro Campus</p>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="timeline-date">2022</span>
+                                <h5 class="timeline-subtitle">GCE Advanced Level</h5>
+                                <p class="timeline-org">Kattankudy Central College</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects section">
+            <div class="container">
+                <h2 class="section-title">My <span>Projects</span></h2>
+                
+                <h3 class="subsection-title">Professional Projects</h3>
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card reveal">
+                        <div class="project-img">
+                            <div class="project-img-overlay">
+                                <a href="https://theseptembercollective.com/" target="_blank" class="project-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                                </a>
+                            </div>
+                            <img src="theseptemberweb.jpg" alt="The September Web">
+                        </div>
+                        <div class="project-content">
+                            <h4>The September Web</h4>
+                            <p class="project-tech">HTML, CSS, JavaScript</p>
+                            <p>Complete website for The September Collective, featuring modern UI/UX design and optimized performance.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card reveal">
+                        <div class="project-img">
+                            <div class="project-img-overlay">
+                                <a href="https://pyrotek.lk/" target="_blank" class="project-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                                </a>
+                            </div>
+                            <img src="Pyrotek.png" alt="Pyrotek">
+                        </div>
+                        <div class="project-content">
+                            <h4>Pyrotek</h4>
+                            <p class="project-tech">HTML, CSS, JS, WordPress</p>
+                            <p>Professional corporate website featuring modern design principles and smooth animations.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card reveal">
+                        <div class="project-img">
+                            <div class="project-img-overlay">
+                                <a href="https://coso.lk/" target="_blank" class="project-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                                </a>
+                            </div>
+                            <img src="coso.png" alt="COSO">
+                        </div>
+                        <div class="project-content">
+                            <h4>COSO</h4>
+                            <p class="project-tech">WordPress</p>
+                            <p>Corporate website for a supply chain consultancy showcasing logistics and procurement solutions.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card reveal">
+                        <div class="project-img">
+                            <div class="project-img-overlay">
+                                <a href="https://grandmosquecolombo.com/" target="_blank" class="project-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                                </a>
+                            </div>
+                            <img src="colombograndmosque.png" alt="Colombo Grand Mosque">
+                        </div>
+                        <div class="project-content">
+                            <h4>Colombo Grand Mosque</h4>
+                            <p class="project-tech">WordPress</p>
+                            <p>Modern website featuring elegant design, event calendars, and donation systems.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title" style="margin-top: 3rem;">Academic Projects</h3>
+
+                <div class="projects-grid" style="margin-bottom: 2.5rem;">
+                    <div class="project-card reveal">
+                        <div class="project-img">
+                            <div class="project-img-overlay">
+                                <a href="https://www.figma.com/proto/1Z3SABSLO9RlBOThGgxjSt/ASE-CW1?node-id=0-1&t=g2dHX5hKda6KX5Gw-1" target="_blank" rel="noopener noreferrer" class="project-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                                </a>
+                            </div>
+                            <img src="staymateroombook.png" alt="StayMate Room Booking UI Wireframe">
+                        </div>
+                        <div class="project-content">
+                            <h4>StayMate Room Booking UI</h4>
+                            <p class="project-tech">Figma, UI/UX Design</p>
+                            <p>Wireframe and interactive prototype for a hotel room booking platform with reservation forms, room summary, and payment flow.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal">
+                        <div class="project-img">
+                            <div class="project-img-overlay">
+                                <a href="https://www.figma.com/proto/9kuRKq5jMX0XouX128izy0/Car-Rental-Platform--Community-?node-id=0-1&t=MryF3yiMEmhvIVQ2-1" target="_blank" rel="noopener noreferrer" class="project-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                                </a>
+                            </div>
+                            <img src="rentacar.png" alt="Car Rental Platform UI Wireframe">
+                        </div>
+                        <div class="project-content">
+                            <h4>Car Rental Platform UI</h4>
+                            <p class="project-tech">Figma, UI/UX Design</p>
+                            <p>Modern landing page wireframe for a premium car rental service with location search, rental options, and driver services.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal">
+                        <div class="project-img">
+                            <div class="project-img-overlay">
+                                <a href="https://www.figma.com/design/WnkzlboLM0iq1dwJPk9QVV/SAD?node-id=0-1&t=P5kNJ5RzecdsPrZk-1" target="_blank" rel="noopener noreferrer" class="project-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                                </a>
+                            </div>
+                            <img src="autocarbooking.png" alt="Auto Car Booking UI Wireframe">
+                        </div>
+                        <div class="project-content">
+                            <h4>Auto Car Booking UI</h4>
+                            <p class="project-tech">Figma, UI/UX Design</p>
+                            <p>Dashboard wireframe for a car booking platform with driver assignment, live map tracking, and customer request management.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal">
+                        <div class="project-img">
+                            <div class="project-img-overlay">
+                                <a href="https://www.figma.com/design/i6mjN1QT1cZx5TSZHabKT9/UEID?node-id=0-1&t=VhI48RE7FJjNlTlA-1" target="_blank" rel="noopener noreferrer" class="project-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                                </a>
+                            </div>
+                            <img src="ticketbooking.png" alt="E-Video Code Ticket Booking App UI">
+                        </div>
+                        <div class="project-content">
+                            <h4>E-Video Code Ticket Booking UI</h4>
+                            <p class="project-tech">Figma, UI/UX Design</p>
+                            <p>Mobile app wireframes for a movie streaming and ticket booking platform with authentication, browsing, profiles, and payment screens.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal">
+                        <div class="project-img">
+                            <div class="project-img-overlay">
+                                <a href="https://www.figma.com/proto/bbgD6mBTl4LIwOxMjgCIae/Auto-Car?node-id=13-3&t=Q6TZpfJ0yXVSLY85-1" target="_blank" rel="noopener noreferrer" class="project-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                                </a>
+                            </div>
+                            <img src="taxiservice.png" alt="Auto Car Taxi Service UI Wireframe">
+                        </div>
+                        <div class="project-content">
+                            <h4>Auto Car Taxi Service UI</h4>
+                            <p class="project-tech">Figma, UI/UX Design</p>
+                            <p>Landing page wireframe for a taxi service platform with role-based navigation for customers, drivers, and phone operators.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal">
+                        <div class="project-img">
+                            <div class="project-img-overlay">
+                                <a href="https://www.figma.com/proto/VwDptzwilBPA9QFABmYem8/Untitled?node-id=19-4&p=f&t=hNmakJENH0zuUIlp-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2%3A2" target="_blank" rel="noopener noreferrer" class="project-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                                </a>
+                            </div>
+                            <img src="garbagecollectoronline.png" alt="Pure Gleam Garbage Collector App UI">
+                        </div>
+                        <div class="project-content">
+                            <h4>Pure Gleam Garbage Collector UI</h4>
+                            <p class="project-tech">Figma, UI/UX Design</p>
+                            <p>Mobile app wireframes for a waste management platform with collection routes, waste categories, and live lorry tracking.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal">
+                        <div class="project-img">
+                            <div class="project-img-overlay">
+                                <a href="https://www.figma.com/proto/W2L0BfXu8TqnxUTb1nR2HH/Netflix-Community--Community-?node-id=26-12&p=f&t=oS0tmKn3x06tzv4b-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=26%3A12" target="_blank" rel="noopener noreferrer" class="project-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                                </a>
+                            </div>
+                            <img src="enhancednetflix.png" alt="Enhanced Netflix UI Design">
+                        </div>
+                        <div class="project-content">
+                            <h4>Enhanced Netflix UI</h4>
+                            <p class="project-tech">Figma, UI/UX Design</p>
+                            <p>Redesigned Netflix interface prototype with improved browsing experience, community features, and modern visual design.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal">
+                        <div class="project-img">
+                            <div class="project-img-overlay">
+                                <a href="https://www.figma.com/proto/NpIyxWKYXym0LaHgPe3VB8/Enhanced-Spotify--Community-?node-id=1-3&p=f&t=cp80vYIor8UER7kK-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1" target="_blank" rel="noopener noreferrer" class="project-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                                </a>
+                            </div>
+                            <img src="enhancedspotify.png" alt="Enhanced Spotify UI Design">
+                        </div>
+                        <div class="project-content">
+                            <h4>Enhanced Spotify UI</h4>
+                            <p class="project-tech">Figma, UI/UX Design</p>
+                            <p>Redesigned Spotify interface prototype with improved music discovery, community features, and modern visual design.</p>
+                        </div>
+                    </div>
+
+                    <!-- RioStudio Project Card -->
+                    <div class="project-card reveal">
+                        <div class="project-img">
+                            <div class="project-img-overlay">
+                                <button class="project-link riostudio-preview-btn" aria-label="View full image">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg>
+                                </button>
+                            </div>
+                            <img src="riostudio.png" alt="RioStudio Photography Portfolio" class="riostudio-thumb" style="cursor:zoom-in; object-position: center center;">
+                        </div>
+                        <div class="project-content">
+                            <h4>RioStudio — Photography Portfolio</h4>
+                            <p class="project-tech">PHP, MySQL</p>
+                            <p>RioStudio showcases photography portfolios with interactive galleries, enquiry forms, and a secure dashboard for management.</p>
+                        </div>
+                    </div>
+
+                    <!-- Sri Lanka Bus Reservation System -->
+                    <div class="project-card reveal">
+                        <div class="project-img">
+                            <div class="project-img-overlay">
+                                <button class="project-link busreservation-preview-btn" aria-label="View full image">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg>
+                                </button>
+                            </div>
+                            <img src="busreservation.png" alt="Sri Lanka Bus Reservation System" class="busreservation-thumb" style="cursor:zoom-in;">
+                        </div>
+                        <div class="project-content">
+                            <h4>Sri Lanka Bus Reservation System</h4>
+                            <p class="project-tech">PHP, MySQL, HTML & CSS</p>
+                            <p>An online bus booking system with seat management, admin controls, and automatic queue-based waiting list.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="academic-grid">
+                    <div class="academic-card reveal">
+                        <h4>Taxi Booking App UI</h4>
+                        <p class="academic-tech">Figma</p>
+                        <p>User-friendly prototype for a taxi booking system with efficient workflows.</p>
+                    </div>
+                    <div class="academic-card reveal">
+                        <h4>Staff Management System</h4>
+                        <p class="academic-tech">C#, .NET, SQL Server</p>
+                        <p>Secure system for data storage and retrieval in a corporate environment.</p>
+                    </div>
+                    <div class="academic-card reveal">
+                        <h4>Studio Management System</h4>
+                        <p class="academic-tech">MySQL, PHP, JS</p>
+                        <p>Full CRUD web application for handling studio bookings and clients.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Digital Marketing Section -->
+        <section id="digital-marketing" class="digital-marketing section">
+            <div class="container">
+                <h2 class="section-title">Digital <span>Marketing</span></h2>
+                <p class="dm-intro reveal">Beyond development, I help brands grow their online presence through strategic social media management, content creation, and audience engagement — blending creativity with data-driven thinking.</p>
+
+                <div class="dm-services-grid">
+                    <div class="dm-service-card reveal">
+                        <div class="dm-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+                        </div>
+                        <h4>Social Media Management</h4>
+                        <p>Planning, scheduling, and managing content across platforms including Instagram, Facebook, and LinkedIn to build brand awareness and engagement.</p>
+                    </div>
+
+                    <div class="dm-service-card reveal">
+                        <div class="dm-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+                        </div>
+                        <h4>Content Creation</h4>
+                        <p>Designing eye-catching visuals, writing compelling captions, and producing multimedia content that resonates with target audiences.</p>
+                    </div>
+
+                    <div class="dm-service-card reveal">
+                        <div class="dm-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                        </div>
+                        <h4>Analytics & Growth</h4>
+                        <p>Tracking performance metrics, interpreting insights, and adjusting strategies to continuously improve reach, impressions, and follower growth.</p>
+                    </div>
+
+                    <div class="dm-service-card reveal">
+                        <div class="dm-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                        </div>
+                        <h4>Brand Identity</h4>
+                        <p>Helping businesses define their online voice, visual identity, and consistent messaging across all digital channels.</p>
+                    </div>
+
+                    <div class="dm-service-card reveal">
+                        <div class="dm-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        </div>
+                        <h4>Community Engagement</h4>
+                        <p>Actively responding to comments, DMs, and community interactions to build loyal audiences and foster meaningful connections.</p>
+                    </div>
+
+                    <div class="dm-service-card reveal">
+                        <div class="dm-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                        </div>
+                        <h4>Campaign Strategy</h4>
+                        <p>Creating and executing targeted digital campaigns for product launches, promotions, and events to maximise online visibility and conversions.</p>
+                    </div>
+                </div>
+
+                <div class="dm-work reveal">
+                    <h3 class="dm-work-title">My Work</h3>
+                    <div class="dm-work-grid">
+                        <a class="dm-work-card" href="https://www.instagram.com/leenasgallery_/" target="_blank" rel="noopener noreferrer" aria-label="View Leena's Gallery Shop on Instagram">
+                            <div class="dm-work-img">
+                                <img src="leenas%20gallery.jpeg" alt="Leena's Gallery Shop Instagram page — social media management project" loading="lazy">
+                            </div>
+                            <div class="dm-work-content">
+                                <span class="dm-work-badge">Instagram</span>
+                                <p class="project-tech">Social Media Management &middot; Kalmunai, Sri Lanka</p>
+                                <h4>Leena's Gallery Shop</h4>
+                                <p>Managed Leena&rsquo;s Gallery&rsquo;s Instagram, creating engaging posts, videos and captions to promote products, grow brand awareness and attract customers.</p>
+                                <span class="dm-work-link">
+                                    View on Instagram
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="dm-tools reveal">
+                    <h3 class="dm-tools-title">Tools I Use</h3>
+                    <div class="dm-tools-list">
+                        <span>Canva</span>
+                        <span>Adobe Photoshop</span>
+                        <span>Meta Business Suite</span>
+                        <span>Google Analytics</span>
+                        <span>Hootsuite</span>
+                        <span>Capcut</span>
+                        <span>Instagram</span>
+                        <span>Facebook</span>
+                        <span>LinkedIn</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills section bg-alt">
+            <div class="container">
+                <h2 class="section-title">Skills & <span>Expertise</span></h2>
+                <div class="skills-grid">
+                    <div class="skills-category reveal">
+                        <h3>Web Development</h3>
+                        <ul class="skills-list">
+                            <li>HTML / CSS</li>
+                            <li>Bootstrap</li>
+                            <li>JavaScript</li>
+                            <li>PHP</li>
+                        </ul>
+                    </div>
+                    <div class="skills-category reveal">
+                        <h3>Design</h3>
+                        <ul class="skills-list">
+                            <li>UI / UX Design</li>
+                            <li>Figma</li>
+                            <li>Canva / Photoshop</li>
+                        </ul>
+                    </div>
+                    <div class="skills-category reveal">
+                        <h3>Technical</h3>
+                        <ul class="skills-list">
+                            <li>Problem Solving</li>
+                            <li>Debugging</li>
+                            <li>System Design</li>
+                        </ul>
+                    </div>
+                    <div class="skills-category reveal">
+                        <h3>Management</h3>
+                        <ul class="skills-list">
+                            <li>Social Media Management</li>
+                            <li>Team Collaboration</li>
+                            <li>Leadership</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section">
+            <div class="container">
+                <h2 class="section-title">Get in <span>Touch</span></h2>
+                <div class="contact-grid">
+                    <div class="contact-info reveal">
+                        <h3>Let's talk about your project</h3>
+                        <p>I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.</p>
+                        
+                        <div class="contact-methods">
+                            <a href="mailto:nufails.domain@gmail.com" class="contact-item">
+                                <div class="contact-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                                </div>
+                                <div class="contact-text">
+                                    <span>Email</span>
+                                    <p>nufails.domain@gmail.com</p>
+                                </div>
+                            </a>
+                            <a href="https://wa.me/94760184157" target="_blank" class="contact-item">
+                                <div class="contact-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                </div>
+                                <div class="contact-text">
+                                    <span>Phone / WhatsApp</span>
+                                    <p>+94 76 018 4157</p>
+                                </div>
+                            </a>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                </div>
+                                <div class="contact-text">
+                                    <span>Location</span>
+                                    <p>Qatar, Doha</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/nufail-mohamed-a704b12a7?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" aria-label="LinkedIn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox Modal for RioStudio -->
+    <div id="riostudio-lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="RioStudio full image" hidden>
+        <div class="lightbox-backdrop"></div>
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Close image">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <img src="riostudio.png" alt="RioStudio Photography Portfolio — Full View" class="lightbox-img">
+        </div>
+    </div>
+
+    <!-- Lightbox Modal for Bus Reservation -->
+    <div id="busreservation-lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Bus Reservation System full image" hidden>
+        <div class="lightbox-backdrop"></div>
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Close image">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <img src="busreservation.png" alt="Sri Lanka Bus Reservation System — Full View" class="lightbox-img">
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 NM Nufail. All rights reserved.</p>
+                <div class="footer-nav">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#digital-marketing">Marketing</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
