@@ -40,6 +40,10 @@ html {
     scroll-behavior: smooth;
 }
 
+section[id] {
+    scroll-margin-top: 104px;
+}
+
 body {
     background-color: var(--bg-color);
     color: var(--text-primary);
