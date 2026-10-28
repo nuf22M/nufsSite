@@ -1195,6 +1195,189 @@ img {
     text-decoration: underline;
 }
 
+/* Al-Othaim Supermarket case study */
+.othaim-case-study {
+    margin: 4rem 0 3rem;
+    padding: clamp(22px, 4vw, 48px);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    background:
+        radial-gradient(ellipse at 92% 0%, rgba(245, 184, 70, 0.1), transparent 34%),
+        linear-gradient(145deg, rgba(20, 38, 31, 0.92), var(--card-bg) 70%);
+}
+
+.othaim-case-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.othaim-case-kicker {
+    color: #e8bf68;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.othaim-case-kicker span {
+    padding: 0 0.35rem;
+    color: var(--accent-color);
+}
+
+.othaim-case-heading h3 {
+    margin: 0.55rem 0;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    letter-spacing: -0.045em;
+}
+
+.othaim-case-heading p {
+    max-width: 650px;
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
+.othaim-facebook-link {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(232, 191, 104, 0.5);
+    border-radius: 999px;
+    color: #f3d48f;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.othaim-facebook-link:hover {
+    border-color: #e8bf68;
+    background: rgba(232, 191, 104, 0.1);
+    color: #ffe4a6;
+}
+
+.othaim-case-feature {
+    position: relative;
+    min-height: 280px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    background-color: var(--bg-alt);
+}
+
+.othaim-case-feature > img {
+    display: block;
+    width: 100%;
+    max-height: 480px;
+    object-fit: cover;
+    object-position: center 42%;
+}
+
+.othaim-feature-caption {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 3.5rem 1.5rem 1.25rem;
+    background: linear-gradient(transparent, rgba(4, 8, 10, 0.88));
+}
+
+.othaim-feature-caption p {
+    margin: 0;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.othaim-case-badge {
+    flex-shrink: 0;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 999px;
+    background: rgba(10, 16, 15, 0.55);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.othaim-gallery-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 2.5rem 0 1.1rem;
+}
+
+.othaim-gallery-heading h4 {
+    margin: 0;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+}
+
+.othaim-gallery-heading p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.othaim-design-grid {
+    columns: 4;
+    column-gap: 16px;
+}
+
+.othaim-design-card {
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 16px;
+    overflow: hidden;
+    break-inside: avoid;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background-color: var(--bg-alt);
+    vertical-align: top;
+    transition: var(--transition);
+}
+
+.othaim-design-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(232, 191, 104, 0.6);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+}
+
+.othaim-design-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.othaim-design-card figcaption {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.7rem 0.8rem;
+    color: var(--text-secondary);
+    font-size: 0.76rem;
+}
+
+.othaim-design-card figcaption span:last-child {
+    color: #e8bf68;
+    font-variant-numeric: tabular-nums;
+}
+
 @media (max-width: 768px) {
     .dm-work-card {
         grid-template-columns: 1fr;
@@ -1210,6 +1393,37 @@ img {
 
     .dm-work-content {
         padding: 24px;
+    }
+
+    .othaim-case-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    .othaim-case-feature {
+        min-height: 220px;
+    }
+
+    .othaim-feature-caption {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.65rem;
+    }
+
+    .othaim-design-grid {
+        columns: 2;
+        column-gap: 12px;
+    }
+
+    .othaim-design-card {
+        margin-bottom: 12px;
+    }
+
+    .othaim-gallery-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.35rem;
     }
 }
 
@@ -1370,4 +1584,3 @@ img {
         margin-left: 0;
     }
 }
-
