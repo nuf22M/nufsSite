@@ -763,12 +763,17 @@ img {
 
 /* Scroll Reveal */
 .reveal {
+    opacity: 1;
+    transform: none;
+}
+
+.js-enabled .reveal {
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s ease-out;
 }
 
-.reveal.active {
+.js-enabled .reveal.active {
     opacity: 1;
     transform: translateY(0);
 }
@@ -1365,3 +1370,4 @@ img {
         margin-left: 0;
     }
 }
+
